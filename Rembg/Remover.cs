@@ -20,7 +20,7 @@ namespace Rembg
                 dynamic ImageModule = Py.Import("PIL.Image");
 
                 // Read the image stream into a BytesIO object
-                PyObject byteStream = ioModule.BytesIO();
+                PyObject byteStream = ioModule.BytesIO(imageStream.ReadAllBytes());
 
                 // Open the image using PIL
                 dynamic inputImage = ImageModule.open(byteStream);
@@ -36,9 +36,7 @@ namespace Rembg
                 outputStream.GetAttr("seek").Invoke(new PyInt(0));
 
                 // Get the resulting stream as a .NET Stream
-                //return new PyStream(outputStream);
-
-                return null!;
+                return new PyStream(outputStream);
             }
         }
     }
