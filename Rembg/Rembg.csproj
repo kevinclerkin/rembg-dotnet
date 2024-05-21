@@ -2,12 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+	 <PackageId>Rembg</PackageId>
+	  <Version>1.0.0-beta</Version>
+	  <Authors>Kevin Clerkin</Authors>
+	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <RepositoryUrl>https://github.com/kevinclerkin/rembg-dotnet</RepositoryUrl>
+	  <PackageReleaseNotes>Initial beta release</PackageReleaseNotes>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="pythonnet" Version="3.0.3" />
+	  <None Include="../README.md" Pack="true" PackagePath="README.md" />
+	  <None Include="../LICENSE" Pack="true" PackagePath="LICENSE" />
+	  <PackageReference Include="pythonnet" Version="3.0.3" />
   </ItemGroup>
 
 </Project>
