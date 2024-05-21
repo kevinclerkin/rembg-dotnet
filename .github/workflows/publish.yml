@@ -47,7 +47,7 @@ jobs:
           asset_content_type: application/zip
 
       - name: Publish to NuGet
-        uses: nuget/actions-cli@v2
+        uses: nuget/setup-nuget@v1
         with:
           api-key: ${{ secrets.NUGET_API_KEY }}
           packages: './nuget/*.nupkg'
