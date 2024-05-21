@@ -7,9 +7,6 @@ namespace Rembg
     {
         public Stream RemoveBackground(Stream imageStream, string format = "PNG")
         {
-            var pythonHome = @"C:\Users\Kevin\AppData\Local\Programs\Python\Python38";
-            var pythonDll = Path.Combine(pythonHome, "python38.dll");
-            Environment.SetEnvironmentVariable("PYTHONNET_PYDLL", pythonDll);
             
             PythonEngine.Initialize();
 
