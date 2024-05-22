@@ -23,13 +23,13 @@ jobs:
         uses: nuget/setup-nuget@v1
 
       - name: Install dependencies
-        run: dotnet restore ./rembg-dotnet/Rembg/Rembg.csproj
+        run: dotnet restore ./Rembg/Rembg.csproj
 
       - name: Build the project
-        run: dotnet build ./rembg-dotnet/Rembg/Rembg.csproj --configuration Release
+        run: dotnet build ./Rembg/Rembg.csproj --configuration Release
 
       - name: Pack the NuGet package
-        run: dotnet pack ./rembg-dotnet/Rembg/Rembg.csproj --configuration Release --output ./nuget
+        run: dotnet pack ./Rembg/Rembg.csproj --configuration Release --output ./nuget
 
       - name: Create GitHub Release
         id: create_release
