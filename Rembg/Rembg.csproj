@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
 	 <PackageId>Rembg</PackageId>
-	  <Version>1.0.0-beta</Version>
+	  <Version>1.0.1-beta</Version>
 	  <Authors>Kevin Clerkin</Authors>
 	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
