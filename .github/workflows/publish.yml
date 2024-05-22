@@ -51,4 +51,4 @@ jobs:
           asset_content_type: application/zip
 
       - name: Publish to NuGet
-        run: dotnet nuget push ./nuget/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push ./rembg-dotnet/nuget/Rembg.1.0.0-beta.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
