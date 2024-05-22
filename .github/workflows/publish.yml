@@ -18,6 +18,9 @@ jobs:
         with:
           dotnet-version: '6.x'
 
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v1
+
       - name: Install dependencies
         run: dotnet restore ./rembg-dotnet/Rembg/Rembg.csproj
 
@@ -47,7 +50,4 @@ jobs:
           asset_content_type: application/zip
 
       - name: Publish to NuGet
-        uses: nuget/setup-nuget@v1
-        with:
-          api-key: ${{ secrets.NUGET_API_KEY }}
-          packages: './nuget/*.nupkg'
+        run: dotnet nuget push ./nuget/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
