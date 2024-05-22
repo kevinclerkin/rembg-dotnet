@@ -3,7 +3,7 @@ name: Publish NuGet Package
 on:
   push:
     tags:
-      - 'v1.0.1-beta'  # This triggers the workflow on the v1.0.0-beta tag
+      - 'v1.0.1-beta'  # This triggers the workflow on the v1.0.1-beta tag
   workflow_dispatch:
 
 jobs:
