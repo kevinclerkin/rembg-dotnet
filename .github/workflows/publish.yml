@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - 'v1.0.0-beta'  # This triggers the workflow on the v1.0.0-beta tag
+  workflow_dispatch:
 
 jobs:
   publish:
