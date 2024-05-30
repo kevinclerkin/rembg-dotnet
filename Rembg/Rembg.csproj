@@ -3,12 +3,12 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
 	 <PackageId>Rembg</PackageId>
-	  <Version>1.0.2-beta</Version>
+	  <Version>1.1.0-beta</Version>
 	  <Authors>Kevin Clerkin</Authors>
 	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <RepositoryUrl>https://github.com/kevinclerkin/rembg-dotnet</RepositoryUrl>
-	  <PackageReleaseNotes>Initial beta release</PackageReleaseNotes>
+	  <PackageReleaseNotes>beta release</PackageReleaseNotes>
 	  <ImplicitUsings>enable</ImplicitUsings>
 	  <Nullable>enable</Nullable>
   </PropertyGroup>
