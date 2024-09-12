@@ -19,11 +19,13 @@ namespace RembgTest
         {
             var remover = new Remover();
 
-            using (var imageStream = File.OpenRead(@"C:\Users\Kevin\Desktop\gym-review-1.png"))
+            using (var imageStream = File.OpenRead(@"C:\Users\Kevin\Desktop\gym-review-4.png"))
             {
                 Stream resultStream = remover.RemoveBackground(imageStream);
 
                 Assert.NotNull(resultStream);
+                Assert.IsAssignableFrom<Stream>(resultStream);
+                Assert.IsType<PyStream>(resultStream);
 
             }
         }
