@@ -2,8 +2,6 @@ name: Publish NuGet Package
 
 on:
   push:
-    tags:
-      - 'v1.0.2-beta'  # This triggers the workflow on the v1.0.2-beta tag
   workflow_dispatch:
 
 jobs:
@@ -32,4 +30,4 @@ jobs:
         run: dotnet pack ./Rembg/Rembg.csproj --configuration Release
 
       - name: Publish to NuGet
-        run: dotnet nuget push /home/runner/work/rembg-dotnet/rembg-dotnet/Rembg/bin/Release/Rembg.1.0.2-beta.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push /home/runner/work/rembg-dotnet/rembg-dotnet/Rembg/bin/Release/Rembg.1.1.0-beta.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
