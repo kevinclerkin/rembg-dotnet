@@ -54,7 +54,7 @@ namespace Rembg
 
         }
 
-        private byte[] ReadAllBytes(Stream input)
+        public byte[] ReadAllBytes(Stream input)
         {
             using (MemoryStream ms = new MemoryStream())
             {

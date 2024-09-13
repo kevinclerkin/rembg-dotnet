@@ -1,5 +1,7 @@
 using Rembg;
 using Xunit;
+using FakeItEasy;
+
 
 namespace RembgTest
 {
@@ -28,6 +30,24 @@ namespace RembgTest
                 Assert.IsType<PyStream>(resultStream);
 
             }
+        }
+
+        [Fact]
+        public void TestReadAllBytes_ReturnsMemoryStreamAsByteArray()
+        {
+            //Arrange
+            var inputString = "This is a test image";
+            var inputStream = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(inputString));
+
+            var remover = new Remover();
+
+            //Act
+            var result = remover.ReadAllBytes(inputStream);
+
+            //Assert
+            Assert.IsType<byte[]>(result);
+            Assert.Equal(inputStream.Length, result.Length);
+            Assert.Equal(inputStream.ToArray(), result);
         }
     }
 }
