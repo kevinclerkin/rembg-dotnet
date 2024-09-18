@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
-using FakeItEasy;
+﻿using Xunit;
 using Rembg;
-using Python.Runtime;
 
-namespace RembgTest
+
+namespace RembgTests
 {
     public class PyStreamTests
     {
@@ -18,9 +12,6 @@ namespace RembgTest
             // Act & Assert
             Assert.Throws<ArgumentNullException>(() => new PyStream(null!));
         }
-
-        
-
 
     }
 }

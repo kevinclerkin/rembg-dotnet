@@ -1,13 +1,12 @@
 using Rembg;
 using Xunit;
-using FakeItEasy;
 
 
-namespace RembgTest
+namespace RembgTests
 {
-    public class BackgroundRemoverTest
+    public class BackgroundRemoverTests
     {
-        public BackgroundRemoverTest()
+        public BackgroundRemoverTests()
         {
             // Set the PYTHONNET_PYDLL environment variable to point to the Python DLL
 
