@@ -1,0 +1,55 @@
+name: GitHub Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.x'
+
+      - name: Install dependencies
+        run: dotnet restore ./Rembg/Rembg.csproj
+
+      - name: Build the project
+        run: dotnet build ./Rembg/Rembg.csproj --configuration Release
+
+      - name: Pack the NuGet package
+        run: dotnet pack ./Rembg/Rembg.csproj --configuration Release
+
+      - name: Extract version from .csproj
+        id: extract_version
+        run: |
+          VERSION=$(grep -oP '(?<=<Version>).*?(?=</Version>)' ./Rembg/Rembg.csproj)
+          echo "##[set-output name=VERSION;]$VERSION"
+        shell: bash
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        with:
+          tag_name: ${{ steps.extract_version.outputs.VERSION }}
+          release_name: ${{ steps.extract_version.outputs.VERSION }}
+          draft: false
+          prerelease: true
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./Rembg/bin/Release/Rembg.${{ steps.extract_version.outputs.VERSION }}.nupkg
+          asset_name: Rembg.${{ steps.extract_version.outputs.VERSION }}.nupkg
+          asset_content_type: application/octet-stream
